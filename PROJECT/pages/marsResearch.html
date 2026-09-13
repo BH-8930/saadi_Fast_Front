@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBITA</title>
+    <link rel="stylesheet" href="../assest/css/mainstyle.css">
+    <link rel="stylesheet" href="../assest/css/marsResearch.css">
+</head>
+<body>
+    <!-- header -->
+     <header class="hero">
+        <!-- nav bar -->
+        <nav class="navbar">
+            <div class="navbar_box">
+                <div>
+                    <a href="#" class="navbar_btn">تجربه ها</a>
+                    <a href="#" class="navbar_btn">مستندات</a>
+                    <a href="../index.html" class="navbar_btn home">خانه</a>
+                    <a href="#" class="navbar_btn">مقالات</a>
+                    <a href="#" class="navbar_btn">درباره ما</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero_content">
+            <img src="../assest/img/marsResearch/header_img.png" alt="mars" class="hero_img">
+            <div class="progress_indicator">
+                <span class="progress_number">01</span>
+                <div class="progress_line"></div>
+            </div>
+            <div class="hero_text">
+                <p class="case_number">پژوهش شماره ی ۴</p>
+                <!-- <p class="hero_title">مریخ</p> -->
+                <p class="hero_question">آیا مریخ زمانی قابل زیست بوده است؟</p>
+                <a href="#start" class="start">
+                     شروع بررسی
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-down">
+	                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+	                    <path d="M12 5l0 14" />
+	                    <path d="M18 13l-6 6" />
+	                    <path d="M6 13l6 6" />
+                    </svg>
+                   </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- research question section -->
+    <section class="research_section" id="start">
+
+        <div class="research_bg"></div>
+
+        <div class="research_container">
+
+            <span class="research_label r-animate">پرسش پژوهش / 01</span>
+
+            <h2 class="research_headline">
+                <span class="r-animate">آیا مریخ زمانی</span>
+                <span class="research_dim r-animate">قابل زیست بوده است؟</span>
+            </h2>
+
+            <p class="research_desc r-animate">
+                مریخ امروز سیاره‌ای سرد و خشک است؛ اما شواهدی وجود دارد که نشان می‌دهد
+                در گذشته، شرایط آن بسیار متفاوت بوده است. آیا این شرایط می‌توانسته
+                برای شکل‌گیری یا ادامه‌ی حیات مناسب باشد؟
+            </p>
+
+            <div class="research_evidence">
+                <div class="evidence_item r-animate">
+                    <span class="evidence_num">01</span>
+                    <span class="evidence_text">وجود آب در گذشته</span>
+                </div>
+                <div class="evidence_item r-animate">
+                    <span class="evidence_num">02</span>
+                    <span class="evidence_text">جو و اقلیم باستانی</span>
+                </div>
+                <div class="evidence_item r-animate">
+                    <span class="evidence_num">03</span>
+                    <span class="evidence_text">مواد آلی</span>
+                </div>
+                <div class="evidence_item r-animate">
+                    <span class="evidence_num">04</span>
+                    <span class="evidence_text">محیط‌های باستانی</span>
+                </div>
+            </div>
+
+            <div class="scroll_hint r-animate">
+                <span class="scroll_text">برای بررسی بیشتر اسکرول کنید</span>
+                <span class="scroll_arrow">↓</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- water evidence section -->
+    <section class="water_section" id="water">
+
+        <div class="water_content">
+
+            <span class="research_label r-animate">اولین سرنخ / 02</span>
+
+            <h2 class="water_headline r-animate">آیا مریخ زمانی آب داشته است؟</h2>
+
+            <p class="water_desc r-animate">
+                شواهد سطح مریخ نشان می‌دهند که در گذشته، آب مایع در بخش‌هایی از این سیاره وجود داشته است.
+            </p>
+
+            <div class="water_interactive r-animate">
+
+                <div class="water_image_wrap">
+                    <img src="../assest/img/marsResearch/header_img.png" alt="مریخ" class="water_image">
+                    <div class="water_image_overlay"></div>
+
+                    <button class="water_point" data-index="0" style="top: 35%; right: 20%;">
+                        <span class="water_point_dot"></span>
+                        <span class="water_point_label">رودخانه‌های باستانی</span>
+                    </button>
+
+                    <button class="water_point" data-index="1" style="top: 55%; right: 60%;">
+                        <span class="water_point_dot"></span>
+                        <span class="water_point_label">دریاچه‌ها</span>
+                    </button>
+
+                    <button class="water_point" data-index="2" style="top: 70%; right: 35%;">
+                        <span class="water_point_dot"></span>
+                        <span class="water_point_label">کانی‌های مرتبط با آب</span>
+                    </button>
+
+                </div>
+
+                <div class="water_info">
+                    <p class="water_info_text" id="waterInfoText"></p>
+                </div>
+
+            </div>
+
+            <p class="water_conclusion r-animate">
+                آب، یکی از مهم‌ترین سرنخ‌های گذشته‌ی مریخ است.
+            </p>
+
+            <a href="#climate" class="water_next r-animate">
+                ادامه‌ی بررسی ←
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ancient climate section -->
+    <section class="climate_section" id="climate">
+
+        <div class="climate_content">
+
+            <span class="research_label r-animate">دومین سرنخ / 03</span>
+
+            <h2 class="climate_headline r-animate">مریخ همیشه این‌قدر سرد و خشک بوده است؟</h2>
+
+            <p class="climate_desc r-animate">
+                شواهد نشان می‌دهند که مریخ در گذشته جوی ضخیم‌تر و دوره‌هایی با شرایط گرم‌تر و مرطوب‌تر داشته است؛
+                اما میزان و پایداری این شرایط هنوز موضوع پژوهش است.
+            </p>
+
+            <!-- opacity comparison -->
+            <div class="compare_wrap r-animate">
+
+                <div class="compare_container">
+                    <img src="../assest/img/marsResearch/young-mars.png" alt="مریخ باستان" class="compare_img compare_ancient">
+                    <img src="../assest/img/marsResearch/old-mars.png" alt="مریخ امروزی" class="compare_img compare_present" id="comparePresent">
+                </div>
+
+                <div class="compare_slider_row">
+                    <span class="compare_slider_label">مریخ باستان</span>
+                    <input type="range" min="0" max="100" value="100" class="compare_slider" id="compareSlider">
+                    <span class="compare_slider_label">مریخ امروزی</span>
+                </div>
+
+            </div>
+
+            <!-- info buttons -->
+            <div class="climate_info_row r-animate">
+                <button class="climate_btn" data-index="0">جو</button>
+                <button class="climate_btn" data-index="1">دما</button>
+                <button class="climate_btn" data-index="2">آب مایع</button>
+            </div>
+
+            <div class="climate_info_box">
+                <p class="climate_info_text" id="climateInfoText"></p>
+            </div>
+
+            <p class="climate_conclusion r-animate">
+                مریخِ باستان احتمالاً با مریخ امروزی بسیار متفاوت بوده است.
+            </p>
+
+            <a href="#organic" class="water_next r-animate">
+                ادامه‌ی بررسی ←
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- organic matter section -->
+<section class="organic_section" id="organic">
+
+    <div class="organic_content">
+
+        <span class="research_label r-animate">
+            سومین سرنخ / 04
+        </span>
+
+        <h2 class="organic_headline r-animate">
+            آیا مریخ مواد لازم برای حیات را داشته است؟
+        </h2>
+
+        <p class="organic_desc r-animate">
+            در برخی نمونه‌های مریخی، ترکیبات آلی حاوی کربن شناسایی شده‌اند؛
+            اما وجود این مواد به‌تنهایی به معنی وجود حیات نیست.
+        </p>
+
+
+        <div class="sample_analysis r-animate">
+
+            <!-- sample -->
+            <div class="sample_visual">
+
+                <div class="sample_scan"></div>
+
+                <div class="sample_rock">
+                    <img src="../assest/img/marsResearch/mars-rock.png" alt="">
+                </div>
+
+                <span class="sample_label">
+                    نمونه‌ی مریخی
+                </span>
+
+                <div class="scan_line"></div>
+
+            </div>
+
+
+            <!-- analysis panel -->
+            <div class="analysis_panel">
+
+                <div class="analysis_header">
+                    <span>تحلیل نمونه</span>
+                    <span class="analysis_status">آماده</span>
+                </div>
+
+
+                <div class="analysis_results">
+
+                    <div class="analysis_item">
+                        <span class="analysis_number">01</span>
+
+                        <div class="analysis_text">
+                            <span>کربن</span>
+                            <small id="carbonResult">در انتظار بررسی</small>
+                        </div>
+
+                        <span class="analysis_mark" id="carbonMark">—</span>
+                    </div>
+
+
+                    <div class="analysis_item">
+                        <span class="analysis_number">02</span>
+
+                        <div class="analysis_text">
+                            <span>مواد آلی</span>
+                            <small id="organicResult">در انتظار بررسی</small>
+                        </div>
+
+                        <span class="analysis_mark" id="organicMark">—</span>
+                    </div>
+
+
+                    <div class="analysis_item">
+                        <span class="analysis_number">03</span>
+
+                        <div class="analysis_text">
+                            <span>شواهد حیات</span>
+                            <small id="lifeResult">در انتظار بررسی</small>
+                        </div>
+
+                        <span class="analysis_mark" id="lifeMark">?</span>
+                    </div>
+
+                </div>
+
+
+                <button class="analyze_btn" id="analyzeSample">
+                    بررسی نمونه
+                    <span>↗</span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <p class="organic_conclusion r-animate">
+            یک سرنخ مهم پیدا شد؛ اما هنوز پاسخ نهایی را نداریم.
+        </p>
+
+
+        <a href="#ancient" class="water_next r-animate">
+            ادامه‌ی بررسی ←
+        </a>
+
+    </div>
+
+</section>
+
+<section class="ancient_section" id="ancient">
+
+    <div class="ancient_content">
+
+        <span class="research_label r-animate">
+            چهارمین سرنخ / 05
+        </span>
+
+        <div class="ancient_header r-animate">
+            <h2 class="ancient_headline">
+                محیط‌های باستانی مریخ
+            </h2>
+
+            <p class="ancient_desc">
+                سطح مریخ نشانه‌هایی از محیط‌هایی را در خود حفظ کرده است
+                که میلیاردها سال پیش، شرایط بسیار متفاوتی داشته‌اند.
+            </p>
+        </div>
+
+
+        <div class="ancient_layout r-animate">
+
+            <!-- image -->
+            <div class="ancient_image_box">
+                <img src="../assest/img/marsResearch/ancient-environment.jpg"
+                     alt="محیط باستانی مریخ">
+
+                <span class="ancient_image_label">
+                    محیط باستانی مریخ
+                </span>
+            </div>
+
+
+            <!-- environments -->
+            <div class="ancient_items">
+
+                <div class="ancient_item">
+                    <span class="ancient_number">۰۱</span>
+
+                    <div>
+                        <h3>دلتای رودخانه‌ای</h3>
+                        <p>
+                            جریان آب می‌توانسته رسوبات را جابه‌جا کرده
+                            و در دهانه‌ی رودخانه‌ها به‌جا بگذارد.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="ancient_item">
+                    <span class="ancient_number">۰۲</span>
+
+                    <div>
+                        <h3>بستر دریاچه‌ها</h3>
+                        <p>
+                            برخی نواحی مریخ نشانه‌هایی از دریاچه‌های
+                            باستانی و رسوبات باقی‌مانده از آن‌ها دارند.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="ancient_item">
+                    <span class="ancient_number">۰۳</span>
+
+                    <div>
+                        <h3>محیط‌های زیرسطحی</h3>
+                        <p>
+                            زیر سطح مریخ ممکن است برای مدت بیشتری
+                            شرایط متفاوتی نسبت به سطح سرد و خشک آن داشته باشد.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <p class="ancient_conclusion r-animate">
+            این محیط‌ها بخشی از شواهدی هستند که گذشته‌ی متفاوت مریخ را آشکار می‌کنند.
+        </p>
+
+        <a href="#final" class="water_next r-animate">
+            ادامه‌ی بررسی ←
+        </a>
+
+    </div>
+
+</section>
+
+<!-- final conclusion section -->
+<section class="final_section r-animate" id="final">
+
+    <div class="final_content">
+
+        <span class="research_label final_animate r-animate">
+            نتیجه‌ی بررسی / 06
+        </span>
+
+        <div class="final_header final_animate r-animate">
+
+            <h2 class="final_headline">
+                پس، آیا مریخ زمانی
+                <span>قابل زیست بوده است؟</span>
+            </h2>
+
+            <p class="final_desc">
+                شواهد نشان می‌دهند که مریخ باستانی احتمالاً آب مایع،
+                جوی متفاوت و محیط‌هایی داشته که می‌توانستند شرایط
+                مناسب‌تری برای شکل‌گیری حیات فراهم کنند.
+            </p>
+
+        </div>
+
+
+        <!-- evidence summary -->
+        <div class="final_evidence r-animate">
+
+            <div class="final_evidence_item final_animate r-animate">
+                <span class="final_number">01</span>
+                <div>
+                    <span class="final_title">آب در گذشته</span>
+                    <span class="final_status">تأیید شده</span>
+                </div>
+            </div>
+
+            <div class="final_evidence_item final_animate r-animate">
+                <span class="final_number">02</span>
+                <div>
+                    <span class="final_title">جو و اقلیم متفاوت</span>
+                    <span class="final_status">شواهد موجود</span>
+                </div>
+            </div>
+
+            <div class="final_evidence_item final_animate r-animate">
+                <span class="final_number">03</span>
+                <div>
+                    <span class="final_title">مواد آلی</span>
+                    <span class="final_status">شناسایی شده</span>
+                </div>
+            </div>
+
+            <div class="final_evidence_item final_animate r-animate">
+                <span class="final_number">04</span>
+                <div>
+                    <span class="final_title">محیط‌های باستانی</span>
+                    <span class="final_status">شواهد موجود</span>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- key conclusion -->
+        <div class="final_answer final_animate r-animate">
+
+            <span class="final_answer_label">
+                پاسخ پژوهش
+            </span>
+
+            <p class="final_answer_text">
+                مریخ باستان، احتمالاً
+                <strong>قابل‌زیست‌تر از امروز</strong>
+                بوده است. اما:
+            </p>
+
+        </div>
+
+
+        <!-- important distinction -->
+        <div class="final_difference final_animate r-animate">
+
+            <div class="difference_side">
+                <span class="difference_label">قابل زیست</span>
+                <p>
+                    شرایطی که می‌توانسته‌اند
+                    از حیات پشتیبانی کنند.
+                </p>
+            </div>
+
+            <span class="difference_symbol">≠</span>
+
+            <div class="difference_side">
+                <span class="difference_label">وجود حیات</span>
+                <p>
+                    شواهد مستقیمی که نشان دهد
+                    حیات واقعاً وجود داشته است.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="final_end final_animate r-animate">
+
+            <span class="final_line"></span>
+
+            <p>
+                هنوز شواهد مستقیمی از وجود حیات
+                در مریخ پیدا نشده است.
+            </p>
+
+            <span class="final_line"></span>
+
+        </div>
+
+
+        <!-- footer -->
+        <div class="final_footer final_animate r-animate">
+
+            <span>ORBITA</span>
+
+            <span class="final_footer_center">
+                MARS RESEARCH / 04
+            </span>
+
+            <span>پایان پژوهش</span>
+
+        </div>
+
+    </div>
+
+    <script src="../assest/script/marsScript.js">
+    </script>
+
+</body>
+</html>

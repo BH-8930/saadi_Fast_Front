@@ -1,0 +1,1757 @@
+/* header */
+
+.hero {
+    min-height: 100svh;
+    max-width: 100%;
+}
+
+
+.hero_box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(80, 120, 200, 0.12) 0%,   
+            rgba(40, 40, 40, 0.15) 35%,
+            transparent 65%
+        ),
+        var(--bg);
+
+    padding: clamp(0.5rem, 2vw, 1rem) 0;
+}
+
+.hero_box::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: clamp(200px, 40vw, 500px);
+    height: clamp(200px, 40vw, 500px);
+    transform: translateX(-50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(70, 130, 230, 0.25) 0%,   
+        rgba(70, 130, 230, 0.08) 50%,
+        transparent 70%
+    );
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero_img {
+    width: min(70%, 900px);
+    height: auto;
+    margin: -10px auto;
+    position: relative;
+    z-index: 1;
+
+    transition: transform 0.1s linear, opacity 0.1s linear;
+}
+
+.hero_title {
+    margin-top: clamp(-3rem, -3vw, -3.5rem);
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    margin-left: 0.9em;
+
+    color: var(--title);
+
+    font-size: clamp(2rem, 3.5vw, 4rem);
+    letter-spacing: 0.9em;
+    text-align: center;
+
+    font-family: "english";
+
+    
+}
+
+.hero_title_para{
+    color: rgba(255, 255, 255, 0.632);
+    text-align: center;
+
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+
+    margin-top: clamp(-15px, -2vw, -20px);
+    
+}
+
+.intro_video_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    background: var(--bg);
+
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.intro_video_section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.intro_video_section video {
+    display: block;
+    width: 100%;
+    max-width: 1500px;
+    max-height: 60vh;
+    object-fit: cover;
+
+    -webkit-mask-image: radial-gradient(
+        ellipse 50% 55% at 50% 50%,
+        black 10%,
+        transparent 100%
+    );
+    mask-image: radial-gradient(
+        ellipse 50% 55% at 50% 50%,
+        black 10%,
+        transparent 100%
+    );
+
+    opacity: 70%;
+
+    margin-top: clamp(-40px, -7vw, -70px);
+}
+
+.intro_para_section{
+    height: 150svh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro_para{
+    color: white;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+
+    margin-top: clamp(-10px, -2vw, -20px);
+
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1s ease, transform 1s ease;
+
+}
+
+.intro_para.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.intro_para span{
+    font-size: clamp(0.6rem, 1vw, 0.8rem);
+    display: block;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.666);
+
+    margin-top: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+/*  earth and moon */
+
+.earth_moon_section {
+    width: 100%;
+    height: 100svh;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.earth_moon_para_container{
+    height: 150svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.earth_moon_para {
+    color: white;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.earth_moon_para.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes float-earth {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+}
+
+@keyframes float-moon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.earth_moon_container {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.earth {
+    transform: translateX(70px);
+    transition: transform 1.2s ease;
+}
+
+.earth.show {
+    transform: translateX(0);
+}
+
+.moon {
+    transform: translateX(-70px);
+    transition: transform 1.2s ease;
+    position: relative;
+}
+
+.moon.show {
+    transform: translateX(0);
+}
+
+.moon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    width: clamp(300px, 35vw, 480px);
+    height: clamp(300px, 35vw, 500px);
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(150, 170, 220, 0.3) 0%,
+        rgba(150, 170, 220, 0.08) 50%,
+        transparent 70%
+    );
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.moon_img {
+    width: clamp(200px, 32vw, 400px);
+    height: auto;
+    margin-left: clamp(-9rem, -10vw, -6rem);
+    margin-top: clamp(-9rem, -10vw, -6rem);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+
+    animation: float-moon 3s ease-in-out infinite;
+}
+
+.earth {
+    position: relative;
+}
+
+.earth::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: clamp(320px, 45vw, 700px);
+    height: clamp(350px, 45vw, 600px);
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(70, 130, 230, 0.4) 0%,
+        rgba(70, 130, 230, 0.1) 50%,
+        transparent 70%
+    );
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.earth_img {
+    width: clamp(300px, 45vw, 650px);
+    height: auto;
+    margin-right: clamp(-11rem, -12vw, -8rem);
+    margin-top: clamp(6rem, 3vw, 3rem);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+
+    animation: float-earth 5s ease-in-out infinite;
+}
+
+/* planet cards */
+
+.planets_section {
+    padding: clamp(3rem, 6vw, 6rem) clamp(1rem, 4vw, 4rem);
+    background: var(--bg);
+    margin-top: clamp(12rem, 9vh, 15rem);
+
+    opacity: 0;
+    transform: translateY(70px);
+    transition: opacity 1s ease, transform 1s ease;
+
+}
+
+.planets_section.show {
+    opacity: 1;
+    transform: translate(0);
+
+}
+
+.planets_title {
+    color: white;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    text-align: center;
+    margin-bottom: clamp(7rem, 5vw, 9rem);
+}
+
+.planets_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.planet_card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: clamp(1rem, 1.5vw, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+    transition: border-color 0.3s ease, 0.3s ease;
+    cursor: pointer;
+
+    text-decoration: none;
+}
+
+.planet_card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.planet_card_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
+}
+
+.planet_card_code {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: clamp(0.55rem, 0.8vw, 0.7rem);
+    letter-spacing: 0.1em;
+}
+
+.planet_card_icon {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.planet_card_body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex: 1;
+}
+
+.planet_card_info {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    z-index: 1;
+}
+
+.planet_name {
+    color: white;
+    font-size: clamp(1rem, 1.8vw, 1.6rem);
+    font-weight: 400;
+}
+
+.planet_details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.planet_details span {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: clamp(0.5rem, 0.7vw, 0.65rem);
+}
+
+.planet_card_img {
+    flex-shrink: 0;
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.planet_card_img img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+
+    margin-right: clamp(-1rem, -1.5vw, -0.5rem);
+    margin-bottom: clamp(-0.5rem, -1vw, -0.3rem);
+}
+
+
+.deep_space {
+
+    position: relative;
+
+    min-height: 100svh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #000;
+
+    color: white;
+
+    padding: 5rem 1.5rem;
+
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1s ease, transform 1s ease;
+
+}
+
+
+.deep_space::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,0.025),
+        transparent 65%
+    );
+
+    pointer-events: none;
+}
+
+.deep_space.show{
+    opacity: 1;
+    transform: translateY(0);
+
+}
+
+
+.space_header {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+
+    margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+
+.space_header span {
+
+    display: block;
+
+    color: rgba(255,255,255,0.3);
+
+    font-size: 1rem;
+
+    margin-bottom: 0.8rem;
+}
+
+
+.space_header h2 {
+
+    color: rgba(255,255,255,0.9);
+
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
+
+    font-weight: 500;
+}
+
+
+
+.space_orbit {
+
+    position: relative;
+
+    width: min(75vw, 650px);
+
+    aspect-ratio: 1 / 1;
+
+}
+
+
+.orbit_line {
+
+    position: absolute;
+
+    width: 85%;
+    height: 85%;
+
+    top: 14%;
+    left: 8%;
+
+    border:
+
+        1px solid
+
+        rgba(255,255,255,0.2);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+.space_center {
+
+    position: absolute;
+
+    width: 42%;
+
+    left: 29%;
+    top: 45%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    z-index: 3;
+}
+
+
+.center_label {
+
+    color: rgba(255,255,255,0.25);
+
+    font-family: "english";
+
+    font-size: 0.5rem;
+
+    letter-spacing: 0.13em;
+
+    margin-bottom: 0.9rem;
+}
+
+
+.space_center h3 {
+
+    color: rgba(255,255,255,0.92);
+
+    font-size: clamp(1rem, 2vw, 1.45rem);
+
+    font-weight: 500;
+
+    line-height: 1.6;
+
+    margin-bottom: 0.8rem;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.space_center p {
+
+    color: rgba(255,255,255,0.42);
+
+    font-size: clamp(0.6rem, 0.8vw, 0.72rem);
+
+    line-height: 2;
+
+    max-width: 230px;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.space_item {
+
+    position: absolute;
+
+    left: var(--x);
+    top: var(--y);
+
+    transform: translate(-50%, -50%);
+
+    width: clamp(65px, 9vw, 100px);
+
+    aspect-ratio: 1 / 1;
+
+    display: block;
+
+    text-decoration: none;
+
+    z-index: 5;
+}
+
+
+.space_item img {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    filter:
+
+        grayscale(0.25)
+        brightness(1.2);
+
+    transition:
+
+        transform 0.45s ease,
+        filter 0.45s ease,
+        border-color 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+#star{
+    filter: brightness(1.9);
+}
+
+
+.space_item > span {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -1.3rem;
+
+    transform: translateX(-50%);
+
+    color: rgba(255,255,255,0.25);
+
+    font-family: "english";
+
+    font-size: 0.5rem;
+
+    transition: color 0.3s ease;
+}
+
+
+.space_item:hover img {
+
+    transform: scale(1.1);
+
+    filter:
+
+        grayscale(0)
+        brightness(0.95);
+
+    border-color:rgba(255,255,255,0.5);
+
+    box-shadow:0 0 25px rgba(255,255,255,0.08);
+}
+
+
+.space_item:hover > span {
+
+    color: rgba(255,255,255,0.7);
+}
+
+
+.space_item:hover::after {
+
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+.deep_space_intro{
+    color: white;
+    margin: 7rem 0;
+    height: 110vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dsi_para{
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1s ease, transform 1s ease;
+
+}
+
+.dsi_para.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.final_text{
+    height: 150vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    margin-top: clamp(7rem, 8vw, 10rem);
+
+    opacity: 0;
+    transform: translateY(70px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.final_text.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.final_title{
+    color: white;
+    font-size: clamp(2rem, 3vw, 2rem);
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+.final_para{
+    color: rgba(255, 255, 255, 0.656);
+    margin-bottom: 5rem;
+}
+
+.stories_container{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+.stories{
+    opacity: 0;
+    transform: translateY(70px);
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+.stories.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.story_card{
+    display: inline-block;
+
+    transition: .4s;
+}
+
+.story_card img{
+    border: .02px solid rgba(255, 255, 255, 0.282);
+    border-radius: 10px;
+}
+
+.stories_para p{
+    color: white;
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 3rem);
+
+    margin-bottom: 7rem;
+}
+
+.story_card:hover{
+    filter:
+
+        grayscale(.2)
+        brightness(0.70);
+
+}
+
+.footer {
+    width: 100%;
+    min-height: 420px;
+    background: rgb(10, 10, 11);
+    color: white;
+    padding: 70px 10% 50px;
+    box-sizing: border-box;
+
+    margin-top: 30rem;
+}
+
+
+.footer-logo {
+    text-align: center;
+
+    font-family: "english";
+    font-size: 38px;
+    font-weight: 300;
+    letter-spacing: 9px;
+
+    margin-bottom: 10rem;
+}
+
+
+.footer-content {
+    width: min(760px, 90%);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    column-gap: 80px;
+}
+
+
+/* Column */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.footer-column h3 {
+    margin: 0 0 5px;
+
+    font-family: "persion", sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+
+    color: rgba(255, 255, 255, 0.95);
+}
+
+
+.footer-column a {
+    text-decoration: none;
+
+    font-family: "persion", sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    transition: color 0.3s ease;
+}
+
+
+.footer-column a:hover {
+    color: white;
+}
+
+
+/* 
+   320px - 480px
+ */
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    /*  Hero  */
+
+    .hero_box {
+        padding: 0.5rem 0;
+        overflow: hidden;
+    }
+
+    .hero_img {
+        width: 100%;
+        max-width: 500px;
+        margin: 10px auto 0;
+    }
+
+    .hero_title {
+        font-size: 1.65rem;
+        letter-spacing: 0.35em;
+        margin-top: -1rem;
+        margin-bottom: 1.5rem;
+        margin-left: 0.35em;
+    }
+
+    .hero_title_para {
+        font-size: 0.72rem;
+        padding: 0 1.5rem;
+        line-height: 2;
+        margin-top: -8px;
+    }
+
+
+    /* Intro  */
+
+    .intro_para_section {
+        height: 110svh;
+        padding: 0 1.2rem;
+        box-sizing: border-box;
+    }
+
+    .intro_para {
+        font-size: 0.95rem;
+        line-height: 2.2;
+        text-align: center;
+    }
+
+    .intro_para span {
+        font-size: 0.62rem;
+        line-height: 2;
+    }
+
+
+    /*  Video */
+
+    .intro_video_section {
+        overflow: hidden;
+    }
+
+    .intro_video_section video {
+        width: 145%;
+        max-width: none;
+        max-height: 45vh;
+        margin-top: -25px;
+    }
+
+
+    /*  Earth & Moon */
+
+    .earth_moon_section {
+        height: auto;
+        min-height: 100svh;
+    }
+
+    .earth_moon_para_container {
+        height: 90svh;
+        padding: 0 1.2rem;
+        box-sizing: border-box;
+    }
+
+    .earth_moon_para {
+        font-size: 0.95rem;
+        line-height: 2.2;
+    }
+
+    .earth_moon_container {
+        min-height: 70svh;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .earth {
+        transform: translateX(0);
+        margin-top: -2rem;
+    }
+
+    .earth_img {
+        width: 85vw;
+        max-width: 360px;
+        margin-right: -20vw;
+        margin-top: 0;
+    }
+
+    .earth::before {
+        width: 90vw;
+        height: 90vw;
+        left: 40%;
+    }
+
+    .moon {
+        transform: translateX(0);
+        margin-top: -3rem;
+        margin-left: -15vw;
+    }
+
+    .moon_img {
+        width: 58vw;
+        max-width: 260px;
+        margin-left: 0;
+        margin-top: 0;
+    }
+
+    .moon::before {
+        width: 70vw;
+        height: 70vw;
+        left: 60%;
+    }
+
+
+    /* Planets */
+
+    .planets_section {
+        padding: 4rem 1rem;
+        margin-top: 6rem;
+    }
+
+    .planets_title {
+        font-size: 1rem;
+        line-height: 2;
+        margin-bottom: 3rem;
+    }
+
+    .planets_grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .planet_card {
+        min-height: 190px;
+        border-radius: 16px;
+        padding: 1rem;
+    }
+
+    .planet_card_code {
+        font-size: 0.55rem;
+    }
+
+    .planet_name {
+        font-size: 1.2rem;
+    }
+
+    .planet_details span {
+        font-size: 0.55rem;
+    }
+
+    .planet_card_img {
+        width: 50%;
+    }
+
+
+    /* Deep Space */
+
+    .deep_space {
+        min-height: 100svh;
+        padding: 4rem 0.8rem;
+    }
+
+    .space_header {
+        margin-bottom: 2rem;
+    }
+
+    .space_header span {
+        font-size: 0.65rem;
+    }
+
+    .space_header h2 {
+        font-size: 1rem;
+        line-height: 2;
+    }
+
+    .space_orbit {
+        width: 92vw;
+        max-width: 380px;
+    }
+
+    .orbit_line {
+        width: 78%;
+        height: 78%;
+        top: 18%;
+        left: 11%;
+    }
+
+    .space_center {
+        width: 48%;
+        left: 26%;
+        top: 43%;
+    }
+
+    .space_center h3 {
+        font-size: 0.9rem;
+        line-height: 1.8;
+    }
+
+    .space_center p {
+        font-size: 0.58rem;
+        line-height: 1.9;
+        max-width: 150px;
+    }
+
+    .center_label {
+        font-size: 0.42rem;
+    }
+
+    .space_item {
+        width: 52px;
+    }
+
+    .space_item > span {
+        font-size: 0.42rem;
+        bottom: -1.1rem;
+    }
+
+
+    /* Deep Space Intro  */
+
+    .deep_space_intro {
+        height: 90vh;
+        margin: 3rem 0;
+        padding: 0 1.2rem;
+        box-sizing: border-box;
+    }
+
+    .dsi_para {
+        font-size: 0.95rem;
+        line-height: 2.2;
+    }
+
+
+    /*  Final Text  */
+
+    .final_text {
+        height: 100vh;
+        margin-top: 4rem;
+        padding: 0 1.2rem;
+        box-sizing: border-box;
+    }
+
+    .final_title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .final_para {
+        font-size: 0.8rem;
+        line-height: 2;
+        margin-bottom: 3rem;
+    }
+
+
+    /*  Stories  */
+
+    .stories {
+        padding: 0 1rem;
+        box-sizing: border-box;
+    }
+
+    .stories_para p {
+        font-size: 1.5rem;
+        line-height: 2;
+        margin-bottom: 3rem;
+    }
+
+    .stories_container {
+        width: 100%;
+        gap: 0.7rem;
+        overflow: hidden;
+    }
+
+    .story_card {
+        width: 100%;
+    }
+
+    .story_card img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+
+    /*  Footer  */
+
+    .footer {
+        min-height: auto;
+        margin-top: 10rem;
+        padding: 50px 1.2rem 40px;
+    }
+
+    .footer-logo {
+        font-size: 28px;
+        letter-spacing: 6px;
+        margin-bottom: 5rem;
+    }
+
+    .footer-content {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footer-column {
+        gap: 14px;
+    }
+
+    .footer-column h3 {
+        font-size: 17px;
+    }
+
+    .footer-column a {
+        font-size: 12px;
+    }
+}
+
+
+/* 
+   481px - 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    /*  Hero  */
+
+    .hero_box {
+        overflow: hidden;
+    }
+
+    .hero_img {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .hero_title {
+        font-size: 2.1rem;
+        letter-spacing: 0.5em;
+        margin-top: -1.5rem;
+        margin-left: 0.5em;
+    }
+
+    .hero_title_para {
+        font-size: 0.8rem;
+        padding: 0 2rem;
+        line-height: 2;
+    }
+
+
+    /* Intro  */
+
+    .intro_para_section {
+        height: 120svh;
+        padding: 0 2rem;
+    }
+
+    .intro_para {
+        font-size: 1.05rem;
+        line-height: 2.2;
+    }
+
+    .intro_para span {
+        font-size: 0.7rem;
+    }
+
+
+    /*  Video */
+
+    .intro_video_section video {
+        width: 120%;
+        max-width: none;
+        max-height: 50vh;
+    }
+
+
+    /*  Earth & Moon  */
+
+    .earth_moon_section {
+        height: auto;
+        min-height: 100svh;
+    }
+
+    .earth_moon_para_container {
+        height: 100svh;
+        padding: 0 2rem;
+    }
+
+    .earth_moon_para {
+        font-size: 1.05rem;
+        line-height: 2.2;
+    }
+
+    .earth_moon_container {
+        min-height: 75svh;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .earth {
+        transform: translateX(0);
+    }
+
+    .earth_img {
+        width: 72vw;
+        max-width: 500px;
+        margin-right: -18vw;
+        margin-top: 0;
+    }
+
+    .moon {
+        transform: translateX(0);
+        margin-top: -4rem;
+        margin-left: -12vw;
+    }
+
+    .moon_img {
+        width: 45vw;
+        max-width: 320px;
+        margin: 0;
+    }
+
+
+    /* Planets */
+
+    .planets_section {
+        padding: 5rem 2rem;
+        margin-top: 7rem;
+    }
+
+    .planets_title {
+        font-size: 1.1rem;
+        margin-bottom: 4rem;
+    }
+
+    .planets_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .planet_card {
+        min-height: 200px;
+        border-radius: 18px;
+        padding: 1rem;
+    }
+
+    .planet_name {
+        font-size: 1.15rem;
+    }
+
+    .planet_details span {
+        font-size: 0.58rem;
+    }
+
+    .planet_card_img {
+        width: 50%;
+    }
+
+
+    /* Deep Space */
+
+    .deep_space {
+        min-height: 100svh;
+        padding: 5rem 1rem;
+    }
+
+    .space_header {
+        margin-bottom: 3rem;
+    }
+
+    .space_header span {
+        font-size: 0.75rem;
+    }
+
+    .space_header h2 {
+        font-size: 1.15rem;
+    }
+
+    .space_orbit {
+        width: 82vw;
+        max-width: 560px;
+    }
+
+    .orbit_line {
+        width: 82%;
+        height: 82%;
+        top: 15%;
+        left: 9%;
+    }
+
+    .space_center {
+        width: 45%;
+        left: 27.5%;
+        top: 44%;
+    }
+
+    .space_center h3 {
+        font-size: 1rem;
+    }
+
+    .space_center p {
+        font-size: 0.62rem;
+        max-width: 190px;
+    }
+
+    .space_item {
+        width: 68px;
+    }
+
+    .space_item > span {
+        font-size: 0.45rem;
+    }
+
+
+    /*  Deep Space Intro */
+
+    .deep_space_intro {
+        height: 100vh;
+        margin: 4rem 0;
+        padding: 0 2rem;
+    }
+
+    .dsi_para {
+        font-size: 1.05rem;
+        line-height: 2.2;
+    }
+
+
+    /*  Final  */
+
+    .final_text {
+        height: 110vh;
+        margin-top: 5rem;
+        padding: 0 2rem;
+    }
+
+    .final_title {
+        font-size: 1.7rem;
+    }
+
+    .final_para {
+        font-size: 0.85rem;
+        line-height: 2;
+    }
+
+
+    /*  Stories  */
+
+    .stories {
+        padding: 0 2rem;
+    }
+
+    .stories_para p {
+        font-size: 1.8rem;
+        margin-bottom: 4rem;
+    }
+
+    .stories_container {
+        gap: 1rem;
+        overflow: hidden;
+    }
+
+    .story_card {
+        width: calc(50% - 0.5rem);
+    }
+
+    .story_card img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+
+    /*  Footer */
+
+    .footer {
+        min-height: auto;
+        margin-top: 12rem;
+        padding: 60px 5% 45px;
+    }
+
+    .footer-logo {
+        font-size: 32px;
+        letter-spacing: 7px;
+        margin-bottom: 6rem;
+    }
+
+    .footer-content {
+        width: 90%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 2rem;
+    }
+}
+
+
+/* 
+   768px - 1023px
+ */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    /*  Hero  */
+
+    .hero_box {
+        overflow: hidden;
+    }
+
+    .hero_img {
+        width: 80%;
+        max-width: 750px;
+    }
+
+    .hero_title {
+        font-size: 2.8rem;
+        letter-spacing: 0.65em;
+        margin-left: 0.65em;
+    }
+
+    .hero_title_para {
+        font-size: 0.9rem;
+    }
+
+
+    /* Intro */
+
+    .intro_para_section {
+        height: 130svh;
+        padding: 0 3rem;
+    }
+
+    .intro_para {
+        font-size: 1.2rem;
+        line-height: 2.1;
+    }
+
+
+    /*  Video */
+
+    .intro_video_section video {
+        width: 110%;
+        max-width: none;
+        max-height: 55vh;
+    }
+
+
+    /*  Earth & Moon */
+
+    .earth_moon_para_container {
+        height: 120svh;
+        padding: 0 3rem;
+    }
+
+    .earth_moon_para {
+        font-size: 1.2rem;
+        line-height: 2.1;
+    }
+
+    .earth_moon_container {
+        min-height: 75vh;
+    }
+
+    .earth_img {
+        width: 48vw;
+        max-width: 550px;
+        margin-right: -8vw;
+        margin-top: 2rem;
+    }
+
+    .moon_img {
+        width: 34vw;
+        max-width: 360px;
+        margin-left: -5vw;
+        margin-top: -5rem;
+    }
+
+    .earth {
+        transform: translateX(0);
+    }
+
+    .moon {
+        transform: translateX(0);
+    }
+
+
+    /*  Planets */
+
+    .planets_section {
+        padding: 5rem 3rem;
+        margin-top: 9rem;
+    }
+
+    .planets_title {
+        font-size: 1.25rem;
+        margin-bottom: 5rem;
+    }
+
+    .planets_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        max-width: 800px;
+    }
+
+    .planet_card {
+        min-height: 220px;
+        padding: 1.2rem;
+    }
+
+    .planet_name {
+        font-size: 1.3rem;
+    }
+
+    .planet_details span {
+        font-size: 0.62rem;
+    }
+
+
+    /*  Deep Space  */
+
+    .deep_space {
+        min-height: 100svh;
+        padding: 5rem 2rem;
+    }
+
+    .space_header {
+        margin-bottom: 4rem;
+    }
+
+    .space_orbit {
+        width: min(72vw, 620px);
+    }
+
+    .space_item {
+        width: 82px;
+    }
+
+    .space_center {
+        width: 44%;
+        left: 28%;
+    }
+
+
+    /* Deep Space Intro */
+
+    .deep_space_intro {
+        height: 105vh;
+        margin: 5rem 0;
+        padding: 0 3rem;
+    }
+
+    .dsi_para {
+        font-size: 1.2rem;
+        line-height: 2.1;
+    }
+
+
+    /*  Final */
+
+    .final_text {
+        height: 120vh;
+        margin-top: 6rem;
+        padding: 0 3rem;
+    }
+
+    .final_title {
+        font-size: 1.9rem;
+    }
+
+    .final_para {
+        font-size: 0.95rem;
+        line-height: 2;
+    }
+
+
+    /* Stories */
+
+    .stories {
+        padding: 0 3rem;
+    }
+
+    .stories_para p {
+        font-size: 2.2rem;
+        margin-bottom: 5rem;
+    }
+
+    .stories_container {
+        gap: 1.2rem;
+        overflow: hidden;
+    }
+
+    .story_card {
+        width: calc(50% - 0.6rem);
+    }
+
+    .story_card img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+
+    /*  Footer */
+
+    .footer {
+        min-height: auto;
+        margin-top: 15rem;
+        padding: 65px 7% 50px;
+    }
+
+    .footer-logo {
+        font-size: 35px;
+        letter-spacing: 8px;
+        margin-bottom: 7rem;
+    }
+
+    .footer-content {
+        width: 90%;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2rem;
+    }
+
+    .footer-column h3 {
+        font-size: 18px;
+    }
+
+    .footer-column a {
+        font-size: 12px;
+    }
+}
+
+
+/* 
+   Prevent horizontal overflow
+*/
+
+@media (max-width: 1023px) {
+
+    .hero,
+    .intro_para_section,
+    .intro_video_section,
+    .earth_moon_section,
+    .planets_section,
+    .deep_space,
+    .deep_space_intro,
+    .final_text,
+    .stories,
+    .footer {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+}

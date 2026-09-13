@@ -1,0 +1,2172 @@
+:root {
+    --title-color: white;
+    --mars-accent: rgba(180, 70, 30, 0.6);
+    --text-primary: rgba(255, 255, 255, 0.92);
+    --text-secondary: rgba(255, 255, 255, 0.5);
+    --text-dim: rgba(255, 255, 255, 0.3);
+    --line-color: rgba(255, 255, 255, 0.1);
+    --section-bg: #050508;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    font-family: "persion";
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    overflow: hidden;
+}
+
+.hero_content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-image: url('../img/marsResearch/header_img.png');
+    background-size: cover;
+    background-position: center bottom;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero_content::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0.3) 40%,
+        rgba(0, 0, 0, 0.05) 70%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero_img {
+    display: none;
+}
+
+.hero_text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(0.5rem, 1.5vw, 1.5rem);
+
+    padding: clamp(2rem, 5vw, 5rem);
+    /* padding-top: clamp(1rem, 3vw, 3rem); */
+    padding-bottom: clamp(5rem, 5vw, 7rem);
+    position: relative;
+    z-index: 2;
+}
+
+.case_number {
+    color: var(--title-color);
+    font-size: clamp(0.75rem, 1.2vw, 1rem);
+    letter-spacing: 0.05em;
+}
+
+
+.hero_question {
+    color: var(--title-color);
+    font-size: clamp(2rem, 1.5vw, 3rem);
+    font-weight: 700;
+
+    margin-bottom: 40px;
+}
+
+.start {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(0.85rem, 1.3vw, 1.1rem);
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    padding: 4px 7px;
+
+    border: 1px solid rgba(255, 255, 255, 0.691);
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.start:hover {
+    color: white;
+}
+
+/* progress indicator */
+
+.progress_indicator {
+    position: absolute;
+    bottom: clamp(2rem, 5vw, 5rem);
+    left: clamp(1.5rem, 4vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.25rem, 0.5vw, 0.5rem);
+    z-index: 2;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.8s;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.progress_number {
+    color: white;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 200;
+    line-height: 1;
+    font-family: "english";
+    letter-spacing: 0.05em;
+}
+
+
+.progress_line {
+    width: clamp(2rem, 4vw, 3.5rem);
+    height: 1px;
+    background: rgba(255, 255, 255, 0.887);
+    margin: clamp(0.15rem, 0.3vw, 0.3rem) 0;
+}
+
+.start svg{
+    font-size: 5px;
+}
+
+
+.research_section {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--section-bg);
+    overflow: hidden;
+}
+
+.research_bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/marsResearch/header_img.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.04;
+    filter: saturate(0.4) brightness(0.6);
+    pointer-events: none;
+}
+
+.research_container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: clamp(600px, 80vw, 1100px);
+    padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 4vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+
+.research_label {
+    color: var(--mars-accent);
+    font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+    letter-spacing: 0.15em;
+    font-weight: 400;
+}
+
+
+.research_headline {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.2rem, 0.5vw, 0.5rem);
+}
+
+.research_headline span {
+    color: var(--text-primary);
+    font-size: clamp(1.8rem, 4.5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.research_dim {
+    color: var(--text-primary) !important;
+}
+
+
+.research_desc {
+    color: var(--text-secondary);
+    font-size: clamp(0.8rem, 1.1vw, 1rem);
+    line-height: 2;
+    max-width: clamp(400px, 55vw, 700px);
+}
+
+.research_evidence {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+    border-top: 1px solid var(--line-color);
+}
+
+.evidence_item {
+    flex: 1 1 0;
+    min-width: clamp(120px, 18vw, 200px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.3rem, 0.5vw, 0.5rem);
+    padding: clamp(0.8rem, 1.5vw, 1.5rem) clamp(0.8rem, 1.5vw, 1.5rem) clamp(0.8rem, 1.5vw, 1.5rem) 0;
+    border-bottom: 1px solid var(--line-color);
+    border-left: 1px solid var(--line-color);
+}
+
+.evidence_item:last-child {
+    border-left: none;
+}
+
+.evidence_num {
+    color: var(--text-dim);
+    font-size: clamp(0.55rem, 0.7vw, 0.65rem);
+    font-family: "english";
+    letter-spacing: 0.1em;
+}
+
+.evidence_text {
+    color: var(--text-secondary);
+    font-size: clamp(0.7rem, 0.95vw, 0.85rem);
+    font-weight: 400;
+}
+
+.scroll_hint {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.4rem, 0.8vw, 0.8rem);
+    margin-top: clamp(1rem, 2vw, 2rem);
+}
+
+.scroll_text {
+    color: var(--text-dim);
+    font-size: clamp(0.6rem, 0.8vw, 0.7rem);
+    letter-spacing: 0.05em;
+}
+
+.scroll_arrow {
+    color: var(--text-dim);
+    font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+}
+
+
+.r-animate {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+.r-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.water_section {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--section-bg);
+    overflow: hidden;
+}
+
+.water_content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: clamp(600px, 80vw, 1100px);
+    padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 4vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+.water_headline {
+    color: var(--text-primary);
+    font-size: clamp(1.6rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.water_desc {
+    color: var(--text-secondary);
+    font-size: clamp(0.8rem, 1.1vw, 1rem);
+    line-height: 2;
+    max-width: clamp(400px, 55vw, 650px);
+}
+
+.water_interactive {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+.water_image_wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    border-radius: clamp(8px, 1vw, 12px);
+    overflow: hidden;
+    border: 1px solid var(--line-color);
+}
+
+.water_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+    filter: saturate(0.7) brightness(0.75);
+}
+
+.water_image_overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(5, 5, 8, 0.6) 0%,
+        transparent 50%
+    );
+    pointer-events: none;
+}
+
+/* interactive points */
+
+.water_point {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: clamp(0.4rem, 0.7vw, 0.7rem);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: clamp(0.3rem, 0.5vw, 0.5rem);
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.water_point:hover {
+    transform: scale(1.05);
+}
+
+.water_point_dot {
+    width: clamp(8px, 1vw, 12px);
+    height: clamp(8px, 1vw, 12px);
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    background: rgba(180, 70, 30, 0.4);
+    flex-shrink: 0;
+    transition: 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.water_point.active .water_point_dot {
+    background: var(--mars-accent);
+    border-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 clamp(6px, 1vw, 12px) rgba(180, 70, 30, 0.5);
+}
+
+.water_point_label {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: clamp(0.6rem, 0.85vw, 0.8rem);
+    font-family: "persion";
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.water_point.active .water_point_label {
+    color: var(--text-primary);
+}
+
+
+.water_info {
+    min-height: clamp(3rem, 5vw, 5rem);
+    display: flex;
+    align-items: center;
+    padding: clamp(1rem, 2vw, 2rem);
+    border: 1px solid var(--line-color);
+    border-radius: clamp(6px, 0.8vw, 10px);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.water_info_text {
+    color: var(--text-secondary);
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    line-height: 1.9;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.water_info_text.show {
+    opacity: 1;
+}
+
+
+.water_conclusion {
+    color: var(--text-dim);
+    font-size: clamp(0.7rem, 0.95vw, 0.85rem);
+    font-style: italic;
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+.water_next {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    text-decoration: none;
+    padding: clamp(0.4rem, 0.7vw, 0.7rem) clamp(0.8rem, 1.5vw, 1.5rem);
+    border: 1px solid var(--line-color);
+    border-radius: 8px;
+    transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.water_next:hover {
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+
+.climate_section {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--section-bg);
+    overflow: hidden;
+}
+
+.climate_content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: clamp(600px, 80vw, 1100px);
+    padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 4vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+.climate_headline {
+    color: var(--text-primary);
+    font-size: clamp(1.6rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.climate_desc {
+    color: var(--text-secondary);
+    font-size: clamp(0.8rem, 1.1vw, 1rem);
+    line-height: 2;
+    max-width: clamp(400px, 55vw, 700px);
+}
+
+
+.compare_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.8rem, 1.5vw, 1.2rem);
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+.compare_container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    border-radius: clamp(8px, 1vw, 12px);
+    overflow: hidden;
+    border: 1px solid var(--line-color);
+    background-color: black;
+}
+
+.compare_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.compare_ancient {
+    z-index: 1;
+    right: 25px;
+}
+
+.compare_present {
+    z-index: 2;
+    transition: opacity 0.15s ease;
+}
+
+.compare_slider_row {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.6rem, 1.2vw, 1rem);
+}
+
+.compare_slider_label {
+    color: var(--text-dim);
+    font-size: clamp(0.55rem, 0.8vw, 0.7rem);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.compare_slider {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1;
+    height: 2px;
+    background: var(--line-color);
+    outline: none;
+    border-radius: 2px;
+    cursor: ew-resize;
+}
+
+.compare_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: clamp(14px, 1.8vw, 20px);
+    height: clamp(14px, 1.8vw, 20px);
+    border-radius: 50%;
+    background: var(--mars-accent);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: ew-resize;
+}
+
+.compare_slider::-moz-range-thumb {
+    width: clamp(14px, 1.8vw, 20px);
+    height: clamp(14px, 1.8vw, 20px);
+    border-radius: 50%;
+    background: var(--mars-accent);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: ew-resize;
+}
+
+
+.climate_info_row {
+    display: flex;
+    gap: clamp(0.5rem, 1vw, 1rem);
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+.climate_btn {
+    background: none;
+    border: 1px solid var(--line-color);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: clamp(0.7rem, 0.95vw, 0.85rem);
+    font-family: "persion";
+    padding: clamp(0.4rem, 0.7vw, 0.7rem) clamp(0.8rem, 1.5vw, 1.5rem);
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.climate_btn:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    color: var(--text-primary);
+}
+
+.climate_btn.active {
+    color: var(--text-primary);
+    border-color: rgba(180, 70, 30, 0.5);
+    background: rgba(180, 70, 30, 0.06);
+}
+
+.climate_info_box {
+    min-height: clamp(3rem, 5vw, 5rem);
+    display: flex;
+    align-items: center;
+    padding: clamp(1rem, 2vw, 2rem);
+    border: 1px solid var(--line-color);
+    border-radius: clamp(6px, 0.8vw, 10px);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.climate_info_text {
+    color: var(--text-secondary);
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+    line-height: 1.9;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.climate_info_text.show {
+    opacity: 1;
+}
+
+.climate_conclusion {
+    color: var(--text-dim);
+    font-size: clamp(0.7rem, 0.95vw, 0.85rem);
+    font-style: italic;
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+/* =========================================
+   ORGANIC MATTER SECTION
+========================================= */
+
+.organic_section {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--section-bg);
+    overflow: hidden;
+}
+
+.organic_content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: clamp(600px, 80vw, 1100px);
+    padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 4vw, 4rem);
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+
+/* title */
+
+.organic_headline {
+    color: var(--text-primary);
+    font-size: clamp(1.6rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.organic_desc {
+    color: var(--text-secondary);
+    font-size: clamp(0.8rem, 1.1vw, 1rem);
+    line-height: 2;
+    max-width: clamp(400px, 55vw, 700px);
+}
+
+
+/* analysis */
+
+.sample_analysis {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1rem, 2vw, 2rem);
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+
+/* sample visual */
+
+.sample_visual {
+    position: relative;
+    min-height: clamp(280px, 25vw, 380px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--line-color);
+    border-radius: clamp(8px, 1vw, 12px);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(180, 70, 30, 0.08),
+            transparent 55%
+        );
+
+    overflow: hidden;
+}
+
+
+.sample_label {
+    position: absolute;
+    bottom: 1.2rem;
+    right: 1.2rem;
+
+    color: var(--text-dim);
+    font-size: clamp(0.6rem, 0.8vw, 0.7rem);
+}
+
+
+.analysis_panel {
+    border: 1px solid var(--line-color);
+    border-radius: clamp(8px, 1vw, 12px);
+
+    background: rgba(255,255,255,0.015);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+.analysis_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: clamp(1rem, 1.5vw, 1.5rem);
+
+    border-bottom: 1px solid var(--line-color);
+
+    color: var(--text-secondary);
+    font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+}
+
+
+.analysis_status {
+    color: var(--text-dim);
+    font-family: "english";
+    font-size: 0.7rem;
+}
+
+
+/* results */
+
+.analysis_results {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+
+.analysis_item {
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+
+    padding: clamp(1rem, 1.5vw, 1.5rem);
+
+    border-bottom: 1px solid var(--line-color);
+
+    transition:
+        background 0.2s ease,
+        opacity 0.1s ease;
+}
+
+
+.analysis_number {
+    color: var(--text-dim);
+    font-family: "english";
+    font-size: 0.65rem;
+}
+
+
+.analysis_text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    flex: 1;
+}
+
+
+.analysis_text span {
+    color: var(--text-secondary);
+    font-size: clamp(0.75rem, 0.95vw, 0.85rem);
+}
+
+
+.analysis_text small {
+    color: var(--text-dim);
+    font-size: clamp(0.6rem, 0.8vw, 0.7rem);
+}
+
+
+.analysis_mark {
+    color: var(--text-dim);
+    font-family: "english";
+    font-size: 0.9rem;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* active result */
+
+.analysis_item.found {
+    background: rgba(180,70,30,0.035);
+}
+
+.analysis_item.found .analysis_mark {
+    color: var(--mars-accent);
+    transform: scale(1.15);
+}
+
+
+/* button */
+
+.analyze_btn {
+    margin: clamp(1rem, 1.5vw, 1.5rem);
+
+    padding: clamp(0.65rem, 1vw, 0.9rem);
+
+    border: 1px solid var(--line-color);
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    font-family: "persion";
+    font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.5rem;
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.analyze_btn span {
+    font-family: "english";
+}
+
+
+.analyze_btn:hover {
+    color: var(--text-primary);
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.03);
+}
+
+
+/* conclusion */
+
+.organic_conclusion {
+    color: var(--text-dim);
+    font-size: clamp(0.7rem, 0.95vw, 0.85rem);
+    font-style: italic;
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+/* =========================================
+   ANCIENT ENVIRONMENTS SECTION
+========================================= */
+
+.ancient_section {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--section-bg);
+    overflow: hidden;
+}
+
+.ancient_content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: clamp(600px, 80vw, 1100px);
+    padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 4vw, 4rem);
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+
+
+/* header */
+
+.ancient_header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ancient_headline {
+    color: var(--text-primary);
+    font-size: clamp(1.6rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.ancient_desc {
+    color: var(--text-secondary);
+    font-size: clamp(0.8rem, 1.1vw, 1rem);
+    line-height: 2;
+    max-width: 650px;
+}
+
+
+/* main layout */
+
+.ancient_layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(1rem, 2vw, 2rem);
+    margin-top: 1rem;
+}
+
+
+/* image */
+
+.ancient_image_box {
+    position: relative;
+    min-height: clamp(280px, 28vw, 400px);
+
+    border: 1px solid var(--line-color);
+    border-radius: clamp(8px, 1vw, 12px);
+
+    overflow: hidden;
+
+    background: #08080b;
+}
+
+.ancient_image_box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    filter: saturate(0.65) brightness(0.65);
+
+    transition: transform 0.6s ease,
+                filter 0.6s ease;
+}
+
+.ancient_image_box:hover img {
+    transform: scale(1.03);
+    filter: saturate(0.8) brightness(0.75);
+}
+
+.ancient_image_box::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(5, 5, 8, 0.75),
+        transparent 60%
+    );
+
+    pointer-events: none;
+}
+
+.ancient_image_label {
+    position: absolute;
+
+    bottom: 1rem;
+    left: 1rem;
+
+    color: var(--text-dim);
+
+    font-family: "english";
+    font-size: 0.6rem;
+
+    letter-spacing: 0.12em;
+
+    z-index: 2;
+}
+
+
+/* information items */
+
+.ancient_items {
+    display: flex;
+    flex-direction: column;
+
+    border-top: 1px solid var(--line-color);
+}
+
+.ancient_item {
+    display: flex;
+    gap: 1rem;
+
+    padding: clamp(1rem, 1.5vw, 1.5rem) 0;
+
+    border-bottom: 1px solid var(--line-color);
+
+    transition:
+        padding-right 0.3s ease,
+        background 0.3s ease;
+}
+
+.ancient_item:hover {
+    padding-right: 0.5rem;
+    background: rgba(255, 255, 255, 0.015);
+}
+
+.ancient_number {
+    color: var(--mars-accent);
+
+    font-family: "english";
+    font-size: 0.7rem;
+
+    padding-top: 0.25rem;
+}
+
+.ancient_item h3 {
+    color: var(--text-primary);
+
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
+
+    font-weight: 500;
+
+    margin-bottom: 0.6rem;
+}
+
+.ancient_item p {
+    color: var(--text-secondary);
+
+    font-size: clamp(0.7rem, 0.9vw, 0.8rem);
+
+    line-height: 1.9;
+}
+
+
+/* conclusion */
+
+.ancient_conclusion {
+    color: var(--text-dim);
+
+    font-size: clamp(0.7rem, 0.95vw, 0.85rem);
+
+    font-style: italic;
+
+    margin-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+
+
+/* 
+=========================================
+   FINAL CONCLUSION SECTION
+========================================= 
+*/
+
+.final_section {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #030305;
+    overflow: hidden;
+}
+
+.final_content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: clamp(600px, 80vw, 1100px);
+
+    padding: clamp(5rem, 8vw, 8rem)
+             clamp(1.5rem, 4vw, 4rem);
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 3vw, 3rem);
+}
+
+
+   /* HEADER */
+
+.final_header {
+    max-width: 850px;
+}
+
+.final_headline {
+    color: var(--text-primary);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.final_headline span {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+.final_desc {
+    max-width: 680px;
+    margin-top: 1.5rem;
+
+    color: var(--text-secondary);
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
+    line-height: 2.1;
+}
+
+
+   /* EVIDENCE SUMMARY */
+
+.final_evidence {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid var(--line-color);
+    border-bottom: 1px solid var(--line-color);
+}
+
+.final_evidence_item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+
+    padding: 1.3rem 1rem;
+
+    border-left: 1px solid var(--line-color);
+}
+
+.final_evidence_item:last-child {
+    border-left: none;
+}
+
+.final_number {
+    color: var(--mars-accent);
+    font-family: "english";
+    font-size: 0.7rem;
+}
+
+.final_evidence_item > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.final_title {
+    color: var(--text-primary);
+    font-size: 0.75rem;
+}
+
+.final_status {
+    color: var(--text-dim);
+    font-size: 0.65rem;
+}
+
+
+   /* MAIN ANSWER */
+
+
+.final_answer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: clamp(2rem, 4vw, 3.5rem) 1rem;
+
+    text-align: center;
+}
+
+.final_answer_label {
+    color: var(--mars-accent);
+    font-size: 0.7rem;
+    margin-bottom: 1.2rem;
+}
+
+.final_answer_text {
+    color: var(--text-secondary);
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
+    line-height: 1.8;
+}
+
+.final_answer_text strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+
+   /* IMPORTANT DIFFERENCE */
+
+.final_difference {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    max-width: 750px;
+    width: 100%;
+    margin: 0 auto;
+
+    border: 1px solid var(--line-color);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.difference_side {
+    padding: 1.5rem 2rem;
+}
+
+.difference_label {
+    display: block;
+
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+}
+
+.difference_side p {
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    line-height: 1.9;
+}
+
+.difference_symbol {
+    color: var(--mars-accent);
+    font-size: 1.4rem;
+}
+
+
+   /* FINAL STATEMENT */
+
+.final_end {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    text-align: center;
+}
+
+.final_line {
+    width: 70px;
+    height: 1px;
+    background: var(--line-color);
+}
+
+
+   /* FOOTER */
+
+.final_footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 2rem;
+    border-top: 1px solid var(--line-color);
+
+    color: var(--text-dim);
+    font-family: "english";
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+}
+
+.final_footer_center {
+    opacity: 0.6;
+}
+
+
+   /* ANIMATION */
+
+.final_animate {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.final_animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Tablet large */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .hero_content {
+        background-position: center bottom;
+    }
+
+    .hero_text {
+        padding: 4rem 3rem 5rem;
+        gap: 1rem;
+    }
+
+    .hero_question {
+        font-size: 2.3rem;
+        line-height: 1.5;
+        margin-bottom: 25px;
+        max-width: 650px;
+    }
+
+    .progress_indicator {
+        left: 2.5rem;
+        bottom: 3rem;
+    }
+
+    .progress_number {
+        font-size: 3.5rem;
+    }
+
+    .research_container,
+    .water_content,
+    .climate_content,
+    .organic_content,
+    .ancient_content,
+    .final_content {
+        max-width: 900px;
+        padding: 5rem 3rem;
+    }
+
+    .research_headline span {
+        font-size: 3rem;
+    }
+
+    .research_desc,
+    .water_desc,
+    .climate_desc,
+    .organic_desc,
+    .ancient_desc {
+        max-width: 650px;
+    }
+
+    .water_image_wrap,
+    .compare_container {
+        aspect-ratio: 16 / 8;
+    }
+
+    .water_point_label {
+        font-size: 0.75rem;
+    }
+
+    .sample_analysis {
+        gap: 1.2rem;
+    }
+
+    .sample_visual {
+        min-height: 300px;
+    }
+
+    .ancient_layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .ancient_image_box {
+        min-height: 320px;
+    }
+
+    .final_evidence {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .final_evidence_item:nth-child(2) {
+        border-left: none;
+    }
+
+    .final_evidence_item:nth-child(1),
+    .final_evidence_item:nth-child(2) {
+        border-bottom: 1px solid var(--line-color);
+    }
+
+    .final_headline {
+        font-size: 3rem;
+    }
+
+    .final_difference {
+        max-width: 700px;
+    }
+}
+
+
+/* Tablet small */
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .hero_content {
+        background-position: center bottom;
+    }
+
+    .hero_text {
+        padding: 3rem 2rem 4rem;
+        gap: 0.8rem;
+    }
+
+    .case_number {
+        font-size: 0.8rem;
+    }
+
+    .hero_question {
+        font-size: 2rem;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        max-width: 580px;
+    }
+
+    .start {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+    }
+
+    .progress_indicator {
+        left: 1.5rem;
+        bottom: 2.5rem;
+    }
+
+    .progress_number {
+        font-size: 3rem;
+    }
+
+    .progress_line {
+        width: 2.5rem;
+    }
+
+    .research_section,
+    .water_section,
+    .climate_section,
+    .organic_section,
+    .ancient_section,
+    .final_section {
+        min-height: auto;
+    }
+
+    .research_container,
+    .water_content,
+    .climate_content,
+    .organic_content,
+    .ancient_content,
+    .final_content {
+        max-width: 100%;
+        padding: 5rem 2rem;
+        gap: 1.8rem;
+    }
+
+    .research_headline span {
+        font-size: 2.4rem;
+        line-height: 1.5;
+    }
+
+    .research_desc,
+    .water_desc,
+    .climate_desc,
+    .organic_desc,
+    .ancient_desc {
+        max-width: 100%;
+        font-size: 0.82rem;
+        line-height: 2;
+    }
+
+    .research_evidence {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .evidence_item {
+        min-width: 0;
+        padding: 1rem;
+    }
+
+    .evidence_item:nth-child(2) {
+        border-left: none;
+    }
+
+    .water_interactive {
+        gap: 1.5rem;
+    }
+
+    .water_image_wrap {
+        aspect-ratio: 16 / 9;
+    }
+
+    .water_point {
+        gap: 0.4rem;
+        padding: 0.25rem;
+    }
+
+    .water_point_dot {
+        width: 9px;
+        height: 9px;
+    }
+
+    .water_point_label {
+        font-size: 0.62rem;
+    }
+
+    .water_info,
+    .climate_info_box {
+        min-height: 4rem;
+        padding: 1rem;
+    }
+
+    .water_info_text,
+    .climate_info_text {
+        font-size: 0.75rem;
+        line-height: 1.9;
+    }
+
+    .compare_container {
+        aspect-ratio: 16 / 9;
+    }
+
+    .compare_slider_row {
+        gap: 0.5rem;
+    }
+
+    .compare_slider_label {
+        font-size: 0.58rem;
+    }
+
+    .climate_info_row {
+        flex-wrap: wrap;
+    }
+
+    .climate_btn {
+        font-size: 0.7rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .sample_analysis {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .sample_visual {
+        min-height: 280px;
+    }
+
+    .analysis_panel {
+        min-height: 300px;
+    }
+
+    .analysis_item {
+        padding: 1rem;
+    }
+
+    .ancient_layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .ancient_image_box {
+        min-height: 300px;
+    }
+
+    .ancient_items {
+        width: 100%;
+    }
+
+    .ancient_item {
+        padding: 1rem 0;
+    }
+
+    .ancient_item p {
+        font-size: 0.72rem;
+    }
+
+    .final_content {
+        padding-top: 5rem;
+        padding-bottom: 4rem;
+    }
+
+    .final_headline {
+        font-size: 2.3rem;
+        line-height: 1.5;
+    }
+
+    .final_desc {
+        font-size: 0.8rem;
+        line-height: 2;
+        margin-top: 1rem;
+    }
+
+    .final_evidence {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .final_evidence_item {
+        padding: 1rem 0.8rem;
+    }
+
+    .final_evidence_item:nth-child(2) {
+        border-left: none;
+    }
+
+    .final_evidence_item:nth-child(1),
+    .final_evidence_item:nth-child(2) {
+        border-bottom: 1px solid var(--line-color);
+    }
+
+    .final_title {
+        font-size: 0.7rem;
+    }
+
+    .final_status {
+        font-size: 0.6rem;
+    }
+
+    .final_answer {
+        padding: 2rem 0.5rem;
+    }
+
+    .final_answer_text {
+        font-size: 1.2rem;
+        line-height: 1.9;
+    }
+
+    .final_difference {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .difference_side {
+        padding: 1.3rem 1.2rem;
+    }
+
+    .difference_symbol {
+        padding: 0.5rem;
+    }
+
+    .final_end {
+        gap: 0.8rem;
+        font-size: 0.65rem;
+    }
+
+    .final_line {
+        width: 40px;
+    }
+
+    .final_footer {
+        font-size: 0.55rem;
+        gap: 0.8rem;
+    }
+
+    .final_footer_center {
+        text-align: center;
+    }
+}
+
+
+/* Mobile */
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .hero_content {
+        background-position: center bottom;
+    }
+
+    .hero_text {
+        padding: 2rem 1.2rem 3.5rem;
+        gap: 0.7rem;
+    }
+
+    .case_number {
+        font-size: 0.7rem;
+    }
+
+    .hero_question {
+        font-size: 1.55rem;
+        line-height: 1.7;
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .start {
+        font-size: 0.7rem;
+        padding: 4px 7px;
+        border-radius: 7px;
+    }
+
+    .start svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .progress_indicator {
+        left: 1rem;
+        bottom: 2rem;
+    }
+
+    .progress_number {
+        font-size: 2.4rem;
+    }
+
+    .progress_line {
+        width: 2rem;
+    }
+
+    .research_section,
+    .water_section,
+    .climate_section,
+    .organic_section,
+    .ancient_section,
+    .final_section {
+        min-height: auto;
+    }
+
+    .research_container,
+    .water_content,
+    .climate_content,
+    .organic_content,
+    .ancient_content,
+    .final_content {
+        max-width: 100%;
+        padding: 4rem 1.2rem;
+        gap: 1.5rem;
+    }
+
+    .research_label {
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+    }
+
+    .research_headline {
+        gap: 0.1rem;
+    }
+
+    .research_headline span {
+        font-size: 1.75rem;
+        line-height: 1.6;
+    }
+
+    .research_desc,
+    .water_desc,
+    .climate_desc,
+    .organic_desc,
+    .ancient_desc {
+        max-width: 100%;
+        font-size: 0.72rem;
+        line-height: 2.1;
+    }
+
+    .research_evidence {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .evidence_item {
+        min-width: 0;
+        padding: 0.8rem 0.6rem;
+        gap: 0.3rem;
+    }
+
+    .evidence_item:nth-child(2) {
+        border-left: none;
+    }
+
+    .evidence_num {
+        font-size: 0.5rem;
+    }
+
+    .evidence_text {
+        font-size: 0.62rem;
+        line-height: 1.7;
+    }
+
+    .scroll_hint {
+        gap: 0.4rem;
+        margin-top: 0.5rem;
+    }
+
+    .scroll_text {
+        font-size: 0.55rem;
+    }
+
+    .scroll_arrow {
+        font-size: 0.7rem;
+    }
+
+    .water_headline,
+    .climate_headline,
+    .organic_headline,
+    .ancient_headline {
+        font-size: 1.55rem;
+        line-height: 1.6;
+    }
+
+    .water_interactive {
+        gap: 1rem;
+    }
+
+    .water_image_wrap {
+        aspect-ratio: 1 / 1;
+        border-radius: 7px;
+    }
+
+    .water_image {
+        object-position: center;
+    }
+
+    .water_point {
+        gap: 0.25rem;
+        padding: 0.2rem;
+    }
+
+    .water_point_dot {
+        width: 8px;
+        height: 8px;
+        border-width: 1px;
+    }
+
+    .water_point_label {
+        font-size: 0.5rem;
+    }
+
+    .water_info {
+        min-height: 4rem;
+        padding: 0.8rem;
+    }
+
+    .water_info_text {
+        font-size: 0.67rem;
+        line-height: 2;
+    }
+
+    .water_conclusion,
+    .climate_conclusion,
+    .organic_conclusion,
+    .ancient_conclusion {
+        font-size: 0.62rem;
+        line-height: 2;
+    }
+
+    .water_next {
+        font-size: 0.65rem;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+    }
+
+    .compare_wrap {
+        gap: 0.7rem;
+    }
+
+    .compare_container {
+        aspect-ratio: 1 / 1;
+        border-radius: 7px;
+    }
+
+    .compare_img {
+        object-fit: cover;
+    }
+
+    .compare_slider_row {
+        gap: 0.4rem;
+    }
+
+    .compare_slider_label {
+        font-size: 0.5rem;
+    }
+
+    .compare_slider {
+        height: 2px;
+    }
+
+    .compare_slider::-webkit-slider-thumb {
+        width: 16px;
+        height: 16px;
+    }
+
+    .compare_slider::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+    }
+
+    .climate_info_row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
+    }
+
+    .climate_btn {
+        width: 100%;
+        font-size: 0.62rem;
+        padding: 0.5rem 0.3rem;
+        border-radius: 5px;
+    }
+
+    .climate_info_box {
+        min-height: 4rem;
+        padding: 0.8rem;
+    }
+
+    .climate_info_text {
+        font-size: 0.67rem;
+        line-height: 2;
+    }
+
+    .sample_analysis {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .sample_visual {
+        min-height: 240px;
+        border-radius: 7px;
+    }
+
+    .sample_label {
+        bottom: 0.8rem;
+        right: 0.8rem;
+        font-size: 0.55rem;
+    }
+
+    .analysis_panel {
+        min-height: 280px;
+        border-radius: 7px;
+    }
+
+    .analysis_header {
+        padding: 0.9rem;
+        font-size: 0.65rem;
+    }
+
+    .analysis_status {
+        font-size: 0.6rem;
+    }
+
+    .analysis_item {
+        gap: 0.6rem;
+        padding: 0.9rem;
+    }
+
+    .analysis_number {
+        font-size: 0.55rem;
+    }
+
+    .analysis_text {
+        gap: 0.25rem;
+    }
+
+    .analysis_text span {
+        font-size: 0.7rem;
+    }
+
+    .analysis_text small {
+        font-size: 0.57rem;
+    }
+
+    .analysis_mark {
+        font-size: 0.8rem;
+    }
+
+    .analyze_btn {
+        margin: 0.9rem;
+        padding: 0.6rem;
+        font-size: 0.65rem;
+    }
+
+    .ancient_layout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .ancient_image_box {
+        min-height: 240px;
+        border-radius: 7px;
+    }
+
+    .ancient_image_label {
+        bottom: 0.8rem;
+        left: 0.8rem;
+        font-size: 0.5rem;
+    }
+
+    .ancient_items {
+        width: 100%;
+    }
+
+    .ancient_item {
+        gap: 0.7rem;
+        padding: 0.9rem 0;
+    }
+
+    .ancient_number {
+        font-size: 0.6rem;
+    }
+
+    .ancient_item h3 {
+        font-size: 0.75rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .ancient_item p {
+        font-size: 0.62rem;
+        line-height: 2;
+    }
+
+    .final_content {
+        padding: 4rem 1.2rem;
+        gap: 1.7rem;
+    }
+
+    .final_headline {
+        font-size: 1.7rem;
+        line-height: 1.6;
+    }
+
+    .final_desc {
+        font-size: 0.7rem;
+        line-height: 2.1;
+        margin-top: 0.8rem;
+    }
+
+    .final_evidence {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .final_evidence_item {
+        gap: 0.5rem;
+        padding: 0.9rem 0.5rem;
+    }
+
+    .final_evidence_item:nth-child(2) {
+        border-left: none;
+    }
+
+    .final_evidence_item:nth-child(1),
+    .final_evidence_item:nth-child(2) {
+        border-bottom: 1px solid var(--line-color);
+    }
+
+    .final_number {
+        font-size: 0.55rem;
+    }
+
+    .final_evidence_item > div {
+        gap: 0.3rem;
+    }
+
+    .final_title {
+        font-size: 0.62rem;
+        line-height: 1.6;
+    }
+
+    .final_status {
+        font-size: 0.52rem;
+    }
+
+    .final_answer {
+        padding: 1.5rem 0.3rem;
+    }
+
+    .final_answer_label {
+        font-size: 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .final_answer_text {
+        font-size: 1rem;
+        line-height: 2;
+    }
+
+    .final_difference {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .difference_side {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .difference_label {
+        font-size: 0.75rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .difference_side p {
+        font-size: 0.62rem;
+        line-height: 2;
+    }
+
+    .difference_symbol {
+        font-size: 1.1rem;
+        padding: 0.2rem;
+    }
+
+    .final_end {
+        gap: 0.5rem;
+        font-size: 0.58rem;
+        line-height: 1.8;
+    }
+
+    .final_line {
+        width: 25px;
+    }
+
+    .final_footer {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        padding-top: 1.5rem;
+        font-size: 0.5rem;
+    }
+
+    .final_footer_center {
+        width: 100%;
+        order: 3;
+    }
+}
+
+
+/* Small mobile fixes */
+
+@media (max-width: 360px) {
+
+    .hero_question {
+        font-size: 1.4rem;
+    }
+
+    .research_headline span {
+        font-size: 1.6rem;
+    }
+
+    .water_headline,
+    .climate_headline,
+    .organic_headline,
+    .ancient_headline {
+        font-size: 1.4rem;
+    }
+
+    .water_point_label {
+        font-size: 0.45rem;
+    }
+
+    .final_headline {
+        font-size: 1.55rem;
+    }
+
+    .final_evidence_item {
+        padding-left: 0.35rem;
+        padding-right: 0.35rem;
+    }
+}
